@@ -19,7 +19,13 @@ class PortsTableTest extends TestCase
     public $fixtures = [
         'app.ports',
         'app.parcels',
-        'app.shippings'
+        'app.shippings',
+        'app.fixtures',
+        'app.users',
+        'app.pics',
+        'app.charterers',
+        'app.shipowners',
+        'app.commisions'
     ];
 
     /**

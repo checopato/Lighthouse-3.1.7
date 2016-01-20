@@ -7,11 +7,11 @@ use Cake\ORM\Entity;
  * Terminal Entity.
  *
  * @property int $id
- * @property int $ports_id
- * @property \App\Model\Entity\Port $port
+ * @property int $port_id
  * @property string $name
  * @property string $restriction
  * @property string $description
+ * @property \App\Model\Entity\Port $port
  */
 class Terminal extends Entity
 {

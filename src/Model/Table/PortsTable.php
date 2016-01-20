@@ -11,6 +11,7 @@ use Cake\Validation\Validator;
  * Ports Model
  *
  * @property \Cake\ORM\Association\HasMany $Parcels
+ * @property \Cake\ORM\Association\HasMany $Terminals
  */
 class PortsTable extends Table
 {
@@ -30,6 +31,9 @@ class PortsTable extends Table
         $this->primaryKey('id');
 
         $this->hasMany('Parcels', [
+            'foreignKey' => 'port_id'
+        ]);
+        $this->hasMany('Terminals', [
             'foreignKey' => 'port_id'
         ]);
     }

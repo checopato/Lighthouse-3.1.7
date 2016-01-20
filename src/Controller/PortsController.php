@@ -32,7 +32,7 @@ class PortsController extends AppController
     public function view($id = null)
     {
         $port = $this->Ports->get($id, [
-            'contain' => ['Parcels']
+            'contain' => ['Terminals']
         ]);
         $this->set('port', $port);
         $this->set('_serialize', ['port']);

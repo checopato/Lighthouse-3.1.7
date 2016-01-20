@@ -11,7 +11,7 @@
     <fieldset>
         <legend><?= __('Add Terminal') ?></legend>
         <?php
-            echo $this->Form->input('ports_id', ['options' => $ports]);
+            echo $this->Form->input('port_id');
             echo $this->Form->input('name');
             echo $this->Form->input('restriction');
             echo $this->Form->input('description');

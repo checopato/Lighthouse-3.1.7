@@ -30,7 +30,7 @@ class TerminalsTable extends Table
         $this->primaryKey('id');
 
         $this->belongsTo('Ports', [
-            'foreignKey' => 'ports_id',
+            'foreignKey' => 'port_id',
             'joinType' => 'INNER'
         ]);
     }
@@ -69,7 +69,7 @@ class TerminalsTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['ports_id'], 'Ports'));
+        $rules->add($rules->existsIn(['port_id'], 'Ports'));
         return $rules;
     }
 }
