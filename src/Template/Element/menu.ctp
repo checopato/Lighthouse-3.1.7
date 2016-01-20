@@ -11,7 +11,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><?php echo $this->Html->link('Home',['action' => 'home'])  ?></li>
+            <li class="active"><?php echo $this->Html->link('Home',['controller' => 'pages' , 'action' => 'home'])  ?></li>
 
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Users <span class="caret"></span></a>

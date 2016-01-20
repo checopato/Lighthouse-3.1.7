@@ -59,6 +59,7 @@ class UsersTable extends Table
             ->notEmpty('password');
 
         $validator
+            ->add('alias', 'valid' , ['rule' => 'isUnique'])
             ->requirePresence('alias', 'create')
             ->notEmpty('alias');
 
