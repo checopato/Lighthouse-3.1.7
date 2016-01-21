@@ -10,6 +10,7 @@ use Cake\Validation\Validator;
 /**
  * Charterers Model
  *
+ * @property \Cake\ORM\Association\HasMany $Chartererpics
  * @property \Cake\ORM\Association\HasMany $Fixtures
  */
 class CharterersTable extends Table
@@ -29,6 +30,9 @@ class CharterersTable extends Table
         $this->displayField('id');
         $this->primaryKey('id');
 
+        $this->hasMany('Chartererpics', [
+            'foreignKey' => 'charterer_id'
+        ]);
         $this->hasMany('Fixtures', [
             'foreignKey' => 'charterer_id'
         ]);

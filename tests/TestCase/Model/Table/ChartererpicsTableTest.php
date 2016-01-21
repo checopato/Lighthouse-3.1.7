@@ -1,14 +1,14 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\CharterersTable;
+use App\Model\Table\ChartererpicsTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\CharterersTable Test Case
+ * App\Model\Table\ChartererpicsTable Test Case
  */
-class CharterersTableTest extends TestCase
+class ChartererpicsTableTest extends TestCase
 {
 
     /**
@@ -17,6 +17,7 @@ class CharterersTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
+        'app.chartererpics',
         'app.charterers',
         'app.fixtures',
         'app.users',
@@ -37,8 +38,8 @@ class CharterersTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Charterers') ? [] : ['className' => 'App\Model\Table\CharterersTable'];
-        $this->Charterers = TableRegistry::get('Charterers', $config);
+        $config = TableRegistry::exists('Chartererpics') ? [] : ['className' => 'App\Model\Table\ChartererpicsTable'];
+        $this->Chartererpics = TableRegistry::get('Chartererpics', $config);
     }
 
     /**
@@ -48,7 +49,7 @@ class CharterersTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->Charterers);
+        unset($this->Chartererpics);
 
         parent::tearDown();
     }
@@ -69,6 +70,16 @@ class CharterersTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test buildRules method
+     *
+     * @return void
+     */
+    public function testBuildRules()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

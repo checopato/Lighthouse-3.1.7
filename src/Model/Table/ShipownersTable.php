@@ -10,6 +10,7 @@ use Cake\Validation\Validator;
 /**
  * Shipowners Model
  *
+ * @property \Cake\ORM\Association\HasMany $Entitys
  * @property \Cake\ORM\Association\HasMany $Fixtures
  */
 class ShipownersTable extends Table
@@ -29,6 +30,9 @@ class ShipownersTable extends Table
         $this->displayField('id');
         $this->primaryKey('id');
 
+        $this->hasMany('Entitys', [
+            'foreignKey' => 'shipowner_id'
+        ]);
         $this->hasMany('Fixtures', [
             'foreignKey' => 'shipowner_id'
         ]);

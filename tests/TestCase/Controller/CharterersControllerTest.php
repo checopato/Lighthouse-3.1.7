@@ -17,7 +17,19 @@ class CharterersControllerTest extends IntegrationTestCase
      */
     public $fixtures = [
         'app.charterers',
-        'app.fixtures'
+        'app.chartererpics',
+        'app.fixtures',
+        'app.users',
+        'app.pics',
+        'app.shipowners',
+        'app.entitys',
+        'app.entitypics',
+        'app.entitypics_entitys',
+        'app.shippings',
+        'app.commisions',
+        'app.parcels',
+        'app.ports',
+        'app.terminals'
     ];
 
     /**

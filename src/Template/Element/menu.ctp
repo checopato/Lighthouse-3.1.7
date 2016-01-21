@@ -32,8 +32,19 @@
                 <li><?php echo $this->Html->link('Add Terminal',['controller' => 'terminals' , 'action' => 'add'])  ?></li>
               </ul>
 
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Third Parties <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li class="dropdown-header">Charterer</li>
+                <li><?php echo $this->Html->link('Charterer List',['controller' => 'charterers' , 'action' => 'index'])  ?></li>
+                <li><?php echo $this->Html->link('Create Charterer',['controller' => 'charterers' , 'action' => 'add'])  ?></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Shipowners</li>
+                <li><?php echo $this->Html->link('Shipowners List',['controller' => 'shipowners' , 'action' => 'index'])  ?></li>
+                <li><?php echo $this->Html->link('New Shipowner',['controller' => 'shipowners' , 'action' => 'add'])  ?></li>
+              </ul>
+
+
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu">

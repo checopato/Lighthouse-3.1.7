@@ -1,19 +1,18 @@
 <?php
 namespace App\Model\Table;
 
-use App\Model\Entity\Entity;
+use App\Model\Entity\Chartererpic;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Entitys Model
+ * Chartererpics Model
  *
- * @property \Cake\ORM\Association\BelongsTo $Shipowners
- * @property \Cake\ORM\Association\BelongsToMany $Entitypics
+ * @property \Cake\ORM\Association\BelongsTo $Charterers
  */
-class EntitysTable extends Table
+class ChartererpicsTable extends Table
 {
 
     /**
@@ -26,18 +25,13 @@ class EntitysTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('entitys');
+        $this->table('chartererpics');
         $this->displayField('name');
         $this->primaryKey('id');
 
-        $this->belongsTo('Shipowners', [
-            'foreignKey' => 'shipowner_id',
+        $this->belongsTo('Charterers', [
+            'foreignKey' => 'charterer_id',
             'joinType' => 'INNER'
-        ]);
-        $this->belongsToMany('Entitypics', [
-            'foreignKey' => 'entity_id',
-            'targetForeignKey' => 'entitypic_id',
-            'joinTable' => 'entitypics_entitys'
         ]);
     }
 
@@ -54,11 +48,17 @@ class EntitysTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->requirePresence('name', 'create')
-            ->notEmpty('name');
+            ->allowEmpty('name');
 
         $validator
-            ->allowEmpty('info');
+            ->allowEmpty('phone');
+
+        $validator
+            ->allowEmpty('cel_phone');
+
+        $validator
+            ->add('email', 'valid', ['rule' => 'email'])
+            ->allowEmpty('email');
 
         return $validator;
     }
@@ -72,7 +72,8 @@ class EntitysTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['shipowner_id'], 'Shipowners'));
+        $rules->add($rules->isUnique(['email']));
+        $rules->add($rules->existsIn(['charterer_id'], 'Charterers'));
         return $rules;
     }
 }

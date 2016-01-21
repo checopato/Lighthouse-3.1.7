@@ -22,7 +22,12 @@ class ShipownersTableTest extends TestCase
         'app.users',
         'app.pics',
         'app.charterers',
-        'app.shippings'
+        'app.chartererpics',
+        'app.shippings',
+        'app.commisions',
+        'app.parcels',
+        'app.ports',
+        'app.terminals'
     ];
 
     /**

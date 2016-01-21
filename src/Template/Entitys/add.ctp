@@ -11,7 +11,7 @@
     <fieldset>
         <legend><?= __('Add Entity') ?></legend>
         <?php
-            echo $this->Form->input('shipowner');
+            echo $this->Form->input('shipowner_id');
             echo $this->Form->input('name');
             echo $this->Form->input('info');
             echo $this->Form->input('entitypics._ids', ['options' => $entitypics]);

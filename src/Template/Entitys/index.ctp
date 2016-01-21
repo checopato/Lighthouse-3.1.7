@@ -12,7 +12,7 @@
         <thead>
             <tr>
                 <th><?= $this->Paginator->sort('id') ?></th>
-                <th><?= $this->Paginator->sort('shipowner') ?></th>
+                <th><?= $this->Paginator->sort('shipowner_id') ?></th>
                 <th><?= $this->Paginator->sort('name') ?></th>
                 <th><?= $this->Paginator->sort('info') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
@@ -22,7 +22,7 @@
             <?php foreach ($entitys as $entity): ?>
             <tr>
                 <td><?= $this->Number->format($entity->id) ?></td>
-                <td><?= $this->Number->format($entity->shipowner) ?></td>
+                <td><?= $this->Number->format($entity->shipowner_id) ?></td>
                 <td><?= h($entity->name) ?></td>
                 <td><?= h($entity->info) ?></td>
                 <td class="actions">

@@ -1,13 +1,13 @@
 <?php
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\ShipownersController;
+use App\Controller\ChartererpicsController;
 use Cake\TestSuite\IntegrationTestCase;
 
 /**
- * App\Controller\ShipownersController Test Case
+ * App\Controller\ChartererpicsController Test Case
  */
-class ShipownersControllerTest extends IntegrationTestCase
+class ChartererpicsControllerTest extends IntegrationTestCase
 {
 
     /**
@@ -16,15 +16,12 @@ class ShipownersControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'app.shipowners',
-        'app.entitys',
-        'app.entitypics',
-        'app.entitypics_entitys',
+        'app.chartererpics',
+        'app.charterers',
         'app.fixtures',
         'app.users',
         'app.pics',
-        'app.charterers',
-        'app.chartererpics',
+        'app.shipowners',
         'app.shippings',
         'app.commisions',
         'app.parcels',

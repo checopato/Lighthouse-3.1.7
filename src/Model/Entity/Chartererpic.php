@@ -4,15 +4,17 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Entity Entity.
+ * Chartererpic Entity.
  *
  * @property int $id
- * @property int $shipowner_id
+ * @property int $charterer_id
+ * @property \App\Model\Entity\Charterer $charterer
  * @property string $name
- * @property string $info
- * @property \App\Model\Entity\Entitypic[] $entitypics
+ * @property string $phone
+ * @property string $cel_phone
+ * @property string $email
  */
-class Entity extends Entity
+class Chartererpic extends Entity
 {
 
     /**

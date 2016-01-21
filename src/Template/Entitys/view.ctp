@@ -25,8 +25,8 @@
             <td><?= $this->Number->format($entity->id) ?></td>
         </tr>
         <tr>
-            <th><?= __('Shipowner') ?></th>
-            <td><?= $this->Number->format($entity->shipowner) ?></td>
+            <th><?= __('Shipowner Id') ?></th>
+            <td><?= $this->Number->format($entity->shipowner_id) ?></td>
         </tr>
     </table>
     <div class="related">

@@ -32,7 +32,7 @@ class CharterersController extends AppController
     public function view($id = null)
     {
         $charterer = $this->Charterers->get($id, [
-            'contain' => ['Fixtures']
+            'contain' => ['Chartererpics', 'Fixtures']
         ]);
         $this->set('charterer', $charterer);
         $this->set('_serialize', ['charterer']);

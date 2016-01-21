@@ -1,20 +1,17 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Ports'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Parcels'), ['controller' => 'Parcels', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Parcel'), ['controller' => 'Parcels', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="ports form large-9 medium-8 columns content">
-    <?= $this->Form->create($port) ?>
-    <fieldset>
-        <legend><?= __('Add Port') ?></legend>
-        <?php
-            echo $this->Form->input('name');
-            echo $this->Form->input('country');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <?= $this->Form->create($port) ?>
+            <fieldset>
+                <legend><?= __('Add Port') ?></legend>
+                <?php
+                    echo $this->Form->input('name',['class' => 'form-control']);
+                    echo $this->Form->input('country',['class' => 'form-control']);
+                ?>
+            </fieldset>
+            <p></p>
+            <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-sm btn-success']) ?>
+            <?= $this->Form->end() ?>
+        </div>
+    </div>
 </div>

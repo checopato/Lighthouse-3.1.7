@@ -32,7 +32,7 @@ class ShipownersController extends AppController
     public function view($id = null)
     {
         $shipowner = $this->Shipowners->get($id, [
-            'contain' => ['Fixtures']
+            'contain' => ['Entitys', 'Fixtures']
         ]);
         $this->set('shipowner', $shipowner);
         $this->set('_serialize', ['shipowner']);
