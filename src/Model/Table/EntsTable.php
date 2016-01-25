@@ -1,18 +1,19 @@
 <?php
 namespace App\Model\Table;
 
-use App\Model\Entity\Entitypic;
+use App\Model\Entity\Ent;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Entitypics Model
+ * Ents Model
  *
- * @property \Cake\ORM\Association\BelongsToMany $Entitys
+ * @property \Cake\ORM\Association\BelongsTo $Shipowners
+ * @property \Cake\ORM\Association\BelongsToMany $Entpics
  */
-class EntitypicsTable extends Table
+class EntsTable extends Table
 {
 
     /**
@@ -25,14 +26,18 @@ class EntitypicsTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('entitypics');
+        $this->table('ents');
         $this->displayField('name');
         $this->primaryKey('id');
 
-        $this->belongsToMany('Entitys', [
-            'foreignKey' => 'entitypic_id',
-            'targetForeignKey' => 'entity_id',
-            'joinTable' => 'entitypics_entitys'
+        $this->belongsTo('Shipowners', [
+            'foreignKey' => 'shipowner_id',
+            'joinType' => 'INNER'
+        ]);
+        $this->belongsToMany('Entpics', [
+            'foreignKey' => 'ent_id',
+            'targetForeignKey' => 'entpic_id',
+            'joinTable' => 'entpics_ents'
         ]);
     }
 
@@ -53,14 +58,7 @@ class EntitypicsTable extends Table
             ->notEmpty('name');
 
         $validator
-            ->allowEmpty('phone');
-
-        $validator
-            ->allowEmpty('cel_phone');
-
-        $validator
-            ->add('email', 'valid', ['rule' => 'email'])
-            ->allowEmpty('email');
+            ->allowEmpty('info');
 
         return $validator;
     }
@@ -74,7 +72,7 @@ class EntitypicsTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->isUnique(['email']));
+        $rules->add($rules->existsIn(['shipowner_id'], 'Shipowners'));
         return $rules;
     }
 }

@@ -1,14 +1,14 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\EntitysTable;
+use App\Model\Table\EntsTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\EntitysTable Test Case
+ * App\Model\Table\EntsTable Test Case
  */
-class EntitysTableTest extends TestCase
+class EntsTableTest extends TestCase
 {
 
     /**
@@ -17,8 +17,9 @@ class EntitysTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.entitys',
+        'app.ents',
         'app.shipowners',
+        'app.entitys',
         'app.fixtures',
         'app.users',
         'app.pics',
@@ -29,8 +30,8 @@ class EntitysTableTest extends TestCase
         'app.parcels',
         'app.ports',
         'app.terminals',
-        'app.entitypics',
-        'app.entitypics_entitys'
+        'app.entpics',
+        'app.entpics_ents'
     ];
 
     /**
@@ -41,8 +42,8 @@ class EntitysTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Entitys') ? [] : ['className' => 'App\Model\Table\EntitysTable'];
-        $this->Entitys = TableRegistry::get('Entitys', $config);
+        $config = TableRegistry::exists('Ents') ? [] : ['className' => 'App\Model\Table\EntsTable'];
+        $this->Ents = TableRegistry::get('Ents', $config);
     }
 
     /**
@@ -52,7 +53,7 @@ class EntitysTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->Entitys);
+        unset($this->Ents);
 
         parent::tearDown();
     }

@@ -1,13 +1,13 @@
 <?php
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\EntitysController;
+use App\Controller\EntpicsController;
 use Cake\TestSuite\IntegrationTestCase;
 
 /**
- * App\Controller\EntitysController Test Case
+ * App\Controller\EntpicsController Test Case
  */
-class EntitysControllerTest extends IntegrationTestCase
+class EntpicsControllerTest extends IntegrationTestCase
 {
 
     /**
@@ -16,20 +16,9 @@ class EntitysControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'app.entitys',
-        'app.shipowners',
-        'app.fixtures',
-        'app.users',
-        'app.pics',
-        'app.charterers',
-        'app.chartererpics',
-        'app.shippings',
-        'app.commisions',
-        'app.parcels',
-        'app.ports',
-        'app.terminals',
-        'app.entitypics',
-        'app.entitypics_entitys'
+        'app.entpics',
+        'app.ents',
+        'app.entpics_ents'
     ];
 
     /**

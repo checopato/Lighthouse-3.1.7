@@ -27,10 +27,10 @@ class ShipownersTable extends Table
         parent::initialize($config);
 
         $this->table('shipowners');
-        $this->displayField('id');
+        $this->displayField('nick');
         $this->primaryKey('id');
 
-        $this->hasMany('Entitys', [
+        $this->hasMany('Ents', [
             'foreignKey' => 'shipowner_id'
         ]);
         $this->hasMany('Fixtures', [
