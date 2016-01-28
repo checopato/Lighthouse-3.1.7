@@ -53,9 +53,11 @@ class EntpicsTable extends Table
             ->notEmpty('name');
 
         $validator
+            ->add('phone', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('phone');
 
         $validator
+            ->add('cel_phone', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('cel_phone');
 
         $validator

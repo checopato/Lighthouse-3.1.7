@@ -27,7 +27,7 @@ class CharterersTable extends Table
         parent::initialize($config);
 
         $this->table('charterers');
-        $this->displayField('id');
+        $this->displayField('nick');
         $this->primaryKey('id');
 
         $this->hasMany('Chartererpics', [

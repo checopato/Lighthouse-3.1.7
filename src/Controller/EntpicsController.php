@@ -36,6 +36,8 @@ class EntpicsController extends AppController
         ]);
         $this->set('entpic', $entpic);
         $this->set('_serialize', ['entpic']);
+
+
     }
 
     /**

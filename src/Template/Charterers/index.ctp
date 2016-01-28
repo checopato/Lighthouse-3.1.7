@@ -6,7 +6,6 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th><?= $this->Paginator->sort('id') ?></th>
                 <th><?= $this->Paginator->sort('full_style') ?></th>
                 <th><?= $this->Paginator->sort('nick') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
@@ -15,7 +14,6 @@
         <tbody>
             <?php foreach ($charterers as $charterer): ?>
             <tr>
-                <td><?= $this->Number->format($charterer->id) ?></td>
                 <td><?= h($charterer->full_style) ?></td>
                 <td><?= h($charterer->nick) ?></td>
                 <td class="actions">

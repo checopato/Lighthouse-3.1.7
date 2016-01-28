@@ -29,21 +29,17 @@
 </ul>
 </div>
 
-<div class="related">
+<div class="col-md-12">
     <h4><?= __('Related Entities') ?></h4>
     <?php if (!empty($shipowner->ents)): ?>
-        <table cellpadding="0" cellspacing="0">
+        <table class="table table-striped">
             <tr>
-                <th><?= __('Id') ?></th>
-                <th><?= __('Shipowner Id') ?></th>
                 <th><?= __('Name') ?></th>
                 <th><?= __('Info') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($shipowner->ents as $ents): ?>
                 <tr>
-                    <td><?= h($ents->id) ?></td>
-                    <td><?= h($ents->shipowner_id) ?></td>
                     <td><?= h($ents->name) ?></td>
                     <td><?= h($ents->info) ?></td>
                     <td class="actions">

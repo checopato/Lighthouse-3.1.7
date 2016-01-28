@@ -43,7 +43,7 @@
     <?php echo __('Actions'); ?> <span class="caret"></span>
 </button>
 <ul class="dropdown-menu" role="menu">
-    <li><?= $this->Html->link(__('List Entitys'), ['controller' => 'Entitys', 'action' => 'index']) ?></li>
-    <li><?= $this->Html->link(__('New Entity'), ['controller' => 'Entitys', 'action' => 'add']) ?></li>
+    <li><?= $this->Html->link(__('List Entities'), ['controller' => 'Ents', 'action' => 'index']) ?></li>
+    <li><?= $this->Html->link(__('New Entity'), ['controller' => 'Ents', 'action' => 'add']) ?></li>
 </ul>
 </div>

@@ -1,17 +1,12 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Chartererpic'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Charterers'), ['controller' => 'Charterers', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Charterer'), ['controller' => 'Charterers', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="chartererpics index large-9 medium-8 columns content">
+
+<div class="page-header">
     <h3><?= __('Chartererpics') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+</div>
+
+<div class="col-md-12">
+    <table class="table table-striped">
         <thead>
             <tr>
-                <th><?= $this->Paginator->sort('id') ?></th>
                 <th><?= $this->Paginator->sort('charterer_id') ?></th>
                 <th><?= $this->Paginator->sort('name') ?></th>
                 <th><?= $this->Paginator->sort('phone') ?></th>
@@ -22,19 +17,18 @@
         </thead>
         <tbody>
             <?php foreach ($chartererpics as $chartererpic): ?>
-            <tr>
-                <td><?= $this->Number->format($chartererpic->id) ?></td>
-                <td><?= $chartererpic->has('charterer') ? $this->Html->link($chartererpic->charterer->id, ['controller' => 'Charterers', 'action' => 'view', $chartererpic->charterer->id]) : '' ?></td>
-                <td><?= h($chartererpic->name) ?></td>
-                <td><?= h($chartererpic->phone) ?></td>
-                <td><?= h($chartererpic->cel_phone) ?></td>
-                <td><?= h($chartererpic->email) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $chartererpic->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $chartererpic->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $chartererpic->id], ['confirm' => __('Are you sure you want to delete # {0}?', $chartererpic->id)]) ?>
-                </td>
-            </tr>
+                <tr>
+                <td><?= $chartererpic->has('charterer') ? $this->Html->link($chartererpic->charterer->nick, ['controller' => 'Charterers', 'action' => 'view', $chartererpic->charterer->id]) : '' ?></td>
+                    <td><?= h($chartererpic->name) ?></td>
+                    <td><?= h($chartererpic->phone) ?></td>
+                    <td><?= h($chartererpic->cel_phone) ?></td>
+                    <td><?= h($chartererpic->email) ?></td>
+                    <td class="actions">
+                        <?= $this->Html->link(__('View'), ['action' => 'view', $chartererpic->id]) ?>
+                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $chartererpic->id]) ?>
+                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $chartererpic->id], ['confirm' => __('Are you sure you want to delete # {0}?', $chartererpic->id)]) ?>
+                    </td>
+                </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
@@ -47,3 +41,16 @@
         <p><?= $this->Paginator->counter() ?></p>
     </div>
 </div>
+
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    <?php echo __('Actions'); ?> <span class="caret"></span>
+</button>
+<ul class="dropdown-menu" role="menu">
+
+    <li><?= $this->Html->link(__('New PIC'), ['action' => 'add']) ?></li>
+    <li role="separator" class="divider"></li>    
+    <li><?= $this->Html->link(__('List Charterers'), ['controller' => 'Charterers', 'action' => 'index']) ?></li>
+    <li><?= $this->Html->link(__('New Charterer'), ['controller' => 'Charterers', 'action' => 'add']) ?></li>
+</ul>
+</siv>
