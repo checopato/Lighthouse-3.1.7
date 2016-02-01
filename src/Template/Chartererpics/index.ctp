@@ -1,6 +1,6 @@
 
 <div class="page-header">
-    <h3><?= __('Chartererpics') ?></h3>
+    <h3><?= __('PICs') ?></h3>
 </div>
 
 <div class="col-md-12">
@@ -24,9 +24,9 @@
                     <td><?= h($chartererpic->cel_phone) ?></td>
                     <td><?= h($chartererpic->email) ?></td>
                     <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $chartererpic->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $chartererpic->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $chartererpic->id], ['confirm' => __('Are you sure you want to delete # {0}?', $chartererpic->id)]) ?>
+                        <?= $this->Html->link(__('View'), ['action' => 'view', $chartererpic->id],['class' => 'btn btn-xs btn-info']) ?>
+                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $chartererpic->id],['class' => 'btn btn-xs btn-warning']) ?>
+                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $chartererpic->id], ['confirm' => __('Are you sure you want to delete # {0}?', $chartererpic->id), 'class' => 'btn btn-xs btn-danger']) ?>
                     </td>
                 </tr>
             <?php endforeach; ?>

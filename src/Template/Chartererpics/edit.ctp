@@ -4,7 +4,7 @@
             <div class="chartererpics form large-9 medium-8 columns content">
                 <?= $this->Form->create($chartererpic) ?>
                 <fieldset>
-                    <legend><?= __('Edit Chartererpic') ?></legend>
+                    <legend><?= __('Edit PIC') ?></legend>
                     <?php
                     echo $this->Form->input('charterer_id', ['options' => $charterers,'class' => 'form-control']);
                     echo $this->Form->input('name',['class' => 'form-control']);
@@ -14,7 +14,7 @@
                     ?>
                 </fieldset>
                 <p></p>
-                <?= $this->Form->button(__('Submit')) ?>
+                <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-sm btn-success']) ?>
                 <?= $this->Form->end() ?>
             </div>
         </div>
