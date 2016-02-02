@@ -24,7 +24,7 @@
             echo $this->Form->input('broker_com', ['label' => 'Brokers Commision']);
             echo $this->Form->input('cp_date', ['empty' => true]);
             echo $this->Form->input('fix_type');
-            echo $this->Form->input('period_st', ['empty' => true , 'label' => 'Period Start']);
+            echo $this->Form->input('period_st', ['empty' => true, 'label' => 'Period Start']);
             echo $this->Form->input('period_nd', ['empty' => true , 'label' => 'Period End']);
             echo $this->Form->input('start_counting');
             echo $this->Form->input('cargo_nom_day', ['label' => 'Cargo Nomination Day']);
@@ -35,3 +35,9 @@
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
 </div>
+
+
+<input data-provide="datepicker">
+<script type="text/javascript">
+    var value = $('.datepicker').datepicker('getDate');
+</script>

@@ -26,8 +26,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css(['style.css','bootstrap.min','bootstrap-theme.min','theme.css','bootstrap']) ?>
-    <?= $this->Html->script(['jquery.min','docs.min','bootstrap.min'])  ?>
+    <?= $this->Html->css(['style.css','bootstrap.min','bootstrap-theme.min','theme.css','bootstrap','bootstrap-datepicker']) ?>
+    <?= $this->Html->script(['jquery.min','docs.min','bootstrap.min','bootstrap-datepicker'])  ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
