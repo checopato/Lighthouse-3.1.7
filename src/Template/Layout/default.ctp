@@ -21,12 +21,12 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        <?= $cakeDescription ?>:
+        Lighthouse Chartering:
         <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css(['style.css','bootstrap.min','bootstrap-theme.min','theme.css','bootstrap','bootstrap-datepicker']) ?>
+    <?= $this->Html->css(['style.css','bootstrap.min','bootstrap-theme.min','theme.css','bootstrap','bootstrap-datepicker','dashboard']) ?>
     <?= $this->Html->script(['jquery.min','docs.min','bootstrap.min','bootstrap-datepicker'])  ?>
 
     <?= $this->fetch('meta') ?>

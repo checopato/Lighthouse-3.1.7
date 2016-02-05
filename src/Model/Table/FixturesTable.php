@@ -39,7 +39,7 @@ class FixturesTable extends Table
         ]);
         $this->belongsTo('Pics', [
             'className' => 'Users',
-            'foreignKey' => 'user_id',
+            'foreignKey' => 'pic_id',
             'joinType' => 'INNER'
         ]);
         $this->belongsTo('Charterers', [
