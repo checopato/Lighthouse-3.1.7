@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\I18n\Time;
 
 /**
  * Fixtures Controller
@@ -50,6 +51,11 @@ class FixturesController extends AppController
     {
         $fixture = $this->Fixtures->newEntity();
         if ($this->request->is('post')) {
+
+            $this->request->data['cp_date'] = Time::createFromFormat('m/d/Y',$this->request->data['cp_date'],'UTC');
+            $this->request->data['period_st'] = Time::createFromFormat('m/d/Y',$this->request->data['period_st'],'UTC');
+            $this->request->data['period_nd'] = Time::createFromFormat('m/d/Y',$this->request->data['period_nd'],'UTC');
+
             $fixture = $this->Fixtures->patchEntity($fixture, $this->request->data);
             if ($this->Fixtures->save($fixture)) {
                 $this->Flash->success(__('The fixture has been saved.'));

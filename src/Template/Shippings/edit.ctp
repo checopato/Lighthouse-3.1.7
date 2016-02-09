@@ -33,4 +33,5 @@
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
+    <?php print_r($fix) ?>
 </div>

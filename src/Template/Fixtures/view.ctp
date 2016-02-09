@@ -63,45 +63,54 @@
     </div>
 </ul>
 </div>
-<div class="col-sm-9 col-sm-offset-2 col-md-10 col-md-offset-2 main">
+
+<div class="col-sm-12 col-sm-offset-2 col-md-10 col-md-offset-2 main">
     <div class="related">
-        <h4><?= __('Related Shippings') ?></h4>
-        <?php if (!empty($fixture->shippings)): ?>
-        <table class="table table-striped">
+        <table>
             <tr>
-                <th><?= __('Id') ?></th>
-                <th><?= __('Serie') ?></th>
-                <th><?= __('Fixture Id') ?></th>
-                <th><?= __('Vessel') ?></th>
-                <th><?= __('Laycan Com') ?></th>
-                <th><?= __('Laycan End') ?></th>
-                <th><?= __('Freight Rate') ?></th>
-                <th><?= __('Status') ?></th>
-                <th><?= __('Is Fact') ?></th>
-                <th class="actions"><?= __('Actions') ?></th>
+                <td width="90%"><h4><?= __('Related Shippings') ?></h4></td>
+                <td width="10%">        <?= $this->Html->link(__('New'), ['controller' => 'Shippings','action' => 'add', $fixture->id],['class' => 'btn btn-sm btn-primary']) ?></td>
             </tr>
-            <?php foreach ($fixture->shippings as $shippings): ?>
-            <tr>
-                <td><?= h($shippings->id) ?></td>
-                <td><?= h($shippings->serie) ?></td>
-                <td><?= h($shippings->fixture_id) ?></td>
-                <td><?= h($shippings->vessel) ?></td>
-                <td><?= h($shippings->laycan_com) ?></td>
-                <td><?= h($shippings->laycan_end) ?></td>
-                <td><?= h($shippings->freight_rate) ?></td>
-                <td><?= h($shippings->status) ?></td>
-                <td><?= h($shippings->is_fact) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Shippings', 'action' => 'view', $shippings->id]) ?>
-
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Shippings', 'action' => 'edit', $shippings->id]) ?>
-
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Shippings', 'action' => 'delete', $shippings->id], ['confirm' => __('Are you sure you want to delete # {0}?', $shippings->id)]) ?>
-
-                </td>
-            </tr>
-            <?php endforeach; ?>
         </table>
-    <?php endif; ?>
+        <?php if (!empty($fixture->shippings)): ?>
+            <table class="table table-striped">
+                <tr>
+                    <th><?= __('Serie') ?></th>
+                    <th><?= __('Vessel') ?></th>
+                    <?php if ($fixture->fix_type == 'COA'): ?>
+                    echo <th><?= __('Laycan Com') ?></th>
+                    echo <th><?= __('Laycan End') ?></th>
+                    <?php endif ?>
+                    <th><?= __('Freight Rate') ?></th>
+                    <th><?= __('Status') ?></th>
+                    <th><?= __('Is Fact') ?></th>
+                    <th class="actions"><?= __('Actions') ?></th>
+                </tr>
+                <?php foreach ($fixture->shippings as $shippings): ?>
+                    <tr>
+                        <td><?= h($shippings->serie) ?></td>
+                        <td><?= h($shippings->vessel) ?></td>
+                        <?php if ($fixture->fix_type == 'COA'): ?>
+                        <td><?= h($shippings->laycan_com) ?></td>
+                        <td><?= h($shippings->laycan_end) ?></td>
+                        <?php endif ?>
+                        <td><?= h($shippings->freight_rate) ?></td>
+                        <td><?= h($shippings->status) ?></td>
+                        <td><?= h($shippings->is_fact) ?></td>
+                        <td class="actions">
+                            <?= $this->Html->link(__('View'), ['controller' => 'Shippings', 'action' => 'view', $shippings->id]) ?>
+
+                            <?= $this->Html->link(__('Edit'), ['controller' => 'Shippings', 'action' => 'edit', $shippings->id]) ?>
+
+                            <?= $this->Form->postLink(__('Delete'), ['controller' => 'Shippings', 'action' => 'delete', $shippings->id], ['confirm' => __('Are you sure you want to delete # {0}?', $shippings->id)]) ?>
+
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        <?php else: ?>
+            <h5>No Shippings added yet</h5>
+
+        <?php endif; ?>
     </div>
 </div>

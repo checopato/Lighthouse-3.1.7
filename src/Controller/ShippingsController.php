@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\I18n\Time;
 
 /**
  * Shippings Controller
@@ -46,21 +47,32 @@ class ShippingsController extends AppController
      *
      * @return void Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($fix = null)
     {
         $shipping = $this->Shippings->newEntity();
         if ($this->request->is('post')) {
+
+            if ($this->request->data['laycan_com'] != null) 
+            {
+                $this->request->data['laycan_com'] = Time::createFromFormat('m/d/Y',$this->request->data['laycan_com'],'UTC');
+                $this->request->data['laycan_end'] = Time::createFromFormat('m/d/Y',$this->request->data['laycan_end'],'UTC');
+            }
+
             $shipping = $this->Shippings->patchEntity($shipping, $this->request->data);
+
             if ($this->Shippings->save($shipping)) {
                 $this->Flash->success(__('The shipping has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'Fixtures' , 'action' => 'view' , $fix]);
             } else {
                 $this->Flash->error(__('The shipping could not be saved. Please, try again.'));
             }
         }
+
         $fixtures = $this->Shippings->Fixtures->find('list', ['limit' => 200]);
         $this->set(compact('shipping', 'fixtures'));
         $this->set('_serialize', ['shipping']);
+        $fixture = $this->Shippings->Fixtures->get($fix);
+        $this->set('fixture', $fixture);
     }
 
     /**
