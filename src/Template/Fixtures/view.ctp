@@ -78,12 +78,12 @@
                     <th><?= __('Serie') ?></th>
                     <th><?= __('Vessel') ?></th>
                     <?php if ($fixture->fix_type == 'COA'): ?>
-                    echo <th><?= __('Laycan Com') ?></th>
-                    echo <th><?= __('Laycan End') ?></th>
+                    <th><?= __('Laycan Com') ?></th>
+                    <th><?= __('Laycan End') ?></th>
                     <?php endif ?>
                     <th><?= __('Freight Rate') ?></th>
                     <th><?= __('Status') ?></th>
-                    <th><?= __('Is Fact') ?></th>
+                    <th><?= __('Factured?') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
                 <?php foreach ($fixture->shippings as $shippings): ?>

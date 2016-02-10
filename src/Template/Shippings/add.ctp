@@ -81,7 +81,7 @@
             }
             echo $this->Form->input('freight_rate', ['label' => 'freight_rate' , 'type' => 'text', 'maxlength' => '4' ]);
             echo $this->Form->input('status');
-            echo $this->Form->input('is_fact');
+            echo $this->Form->hidden('is_fact');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
