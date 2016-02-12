@@ -49,7 +49,7 @@
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $fixture->id],['class' => 'btn btn-xs btn-warning']) ?>
                 </td>
             </tr>
-            <?php endforeach; ?>
+        <?php endforeach; ?>
         </tbody>
     </table>
 

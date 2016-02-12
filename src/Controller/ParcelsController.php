@@ -46,7 +46,7 @@ class ParcelsController extends AppController
      *
      * @return void Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($ship = null)
     {
         $parcel = $this->Parcels->newEntity();
         if ($this->request->is('post')) {
@@ -62,6 +62,9 @@ class ParcelsController extends AppController
         $ports = $this->Parcels->Ports->find('list', ['limit' => 200]);
         $this->set(compact('parcel', 'shippings', 'ports'));
         $this->set('_serialize', ['parcel']);
+
+        $shipping = $this->Parcels->Shippings->get($ship);
+        $this->set('shipping', $shipping);
     }
 
     /**

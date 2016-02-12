@@ -68,7 +68,7 @@
     <div class="related">
         <table>
             <tr>
-                <td width="90%"><h4><?= __('Related Shippings') ?></h4></td>
+                <td width="90%"><h4><?= __('Related Shipments') ?></h4></td>
                 <td width="10%">        <?= $this->Html->link(__('New'), ['controller' => 'Shippings','action' => 'add', $fixture->id],['class' => 'btn btn-sm btn-primary']) ?></td>
             </tr>
         </table>
@@ -96,13 +96,13 @@
                         <?php endif ?>
                         <td><?= h($shippings->freight_rate) ?></td>
                         <td><?= h($shippings->status) ?></td>
-                        <td><?= h($shippings->is_fact) ?></td>
+                        <td><?= h($shippings->is_fact) ? __('Yes') : __('No')?></td>
                         <td class="actions">
-                            <?= $this->Html->link(__('View'), ['controller' => 'Shippings', 'action' => 'view', $shippings->id]) ?>
+                            <?= $this->Html->link(__('View'), ['controller' => 'Shippings', 'action' => 'view', $shippings->id],['class' => 'btn btn-xs btn-info']) ?>
 
-                            <?= $this->Html->link(__('Edit'), ['controller' => 'Shippings', 'action' => 'edit', $shippings->id]) ?>
+                            <?= $this->Html->link(__('Edit'), ['controller' => 'Shippings', 'action' => 'edit', $shippings->id],['class' => 'btn btn-xs btn-warning']) ?>
 
-                            <?= $this->Form->postLink(__('Delete'), ['controller' => 'Shippings', 'action' => 'delete', $shippings->id], ['confirm' => __('Are you sure you want to delete # {0}?', $shippings->id)]) ?>
+                            <?= $this->Html->link(__('Fact'), ['controller' => 'Commisions','action' => 'add', $shippings->id],['class' => 'btn btn-xs btn-primary']) ?>
 
                         </td>
                     </tr>
