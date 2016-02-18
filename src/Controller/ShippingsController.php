@@ -88,10 +88,17 @@ class ShippingsController extends AppController
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
+
+            if ($this->request->data['laycan_com'] != null) 
+            {
+                $this->request->data['laycan_com'] = Time::createFromFormat('m/d/Y',$this->request->data['laycan_com'],'UTC');
+                $this->request->data['laycan_end'] = Time::createFromFormat('m/d/Y',$this->request->data['laycan_end'],'UTC');
+            }
+            
             $shipping = $this->Shippings->patchEntity($shipping, $this->request->data);
             if ($this->Shippings->save($shipping)) {
                 $this->Flash->success(__('The shipping has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'Fixtures','action' => 'view' , $shipping->fixture_id]);
             } else {
                 $this->Flash->error(__('The shipping could not be saved. Please, try again.'));
             }

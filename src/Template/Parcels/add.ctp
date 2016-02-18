@@ -15,10 +15,6 @@
                     <td><?= h($shipping->vessel) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Freight Rate') ?></th>
-                    <td><?= $this->Number->format($shipping->freight_rate) ?></td>
-                </tr>
-                <tr>
                     <th><?= __('Laycan Start') ?></th>
                     <td><?= h($shipping->laycan_com) ?></td>
                 </tr>
@@ -100,7 +96,7 @@
                         <td><b>Despatch/Demurrage (FFI)</b> <p></p><?php echo $this->Form->input('des_dem_ffi', ['label' => false, 'type' => 'text', 'maxlength' => '10' ]); ?></td>
                     </tr>
                     <tr>
-                        <td><b>Despatch/Demurrage (LHC)</b> <p></p><?php echo $this->Form->input('des_dem_char', ['label' => false, 'type' => 'text', 'maxlength' => '10' ]); ?></td>
+                        <td><b>Demurrage (LHC)</b> <p></p><?php echo $this->Form->input('des_dem_char', ['label' => false, 'type' => 'text', 'maxlength' => '10' ]); ?></td>
                     </tr>
 
                 </tbody>
@@ -110,7 +106,7 @@
             <table class="table">
                 <tbody>
                     <tr>
-                        <td><b>Dem Bro</b> <p></p><?php echo $this->Form->input('dem_bro', ['label' => false, 'type' => 'text', 'maxlength' => '10' ]); ?></td>
+                        <td><b>Freight Rate</b> <p></p><?php echo $this->Form->input('dem_bro', ['label' => false, 'type' => 'text', 'maxlength' => '10' ]); ?></td>
                     </tr>
                     <tr>
                     <td><b>BAF (USD)</b> <p></p><?php echo $this->Form->input('baf_usd', ['label' => false, 'type' => 'text', 'maxlength' => '10']); ?></td>

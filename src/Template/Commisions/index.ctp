@@ -16,7 +16,8 @@
                 <th><?= $this->Paginator->sort('date_com') ?></th>
                 <th><?= $this->Paginator->sort('service') ?></th>
                 <th><?= $this->Paginator->sort('type_com') ?></th>
-                <th><?= $this->Paginator->sort('total') ?></th>
+                <th><?= $this->Paginator->sort('freight') ?></th>
+                <th><?= $this->Paginator->sort('total_freight') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -28,7 +29,8 @@
                 <td><?= h($commision->date_com) ?></td>
                 <td><?= h($commision->service) ?></td>
                 <td><?= h($commision->type_com) ?></td>
-                <td><?= $this->Number->format($commision->total) ?></td>
+                <td><?= $this->Number->format($commision->freight) ?></td>
+                <td><?= $this->Number->format($commision->total_freight) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $commision->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $commision->id]) ?>

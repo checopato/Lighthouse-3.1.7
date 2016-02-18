@@ -53,7 +53,7 @@ class ParcelsController extends AppController
             $parcel = $this->Parcels->patchEntity($parcel, $this->request->data);
             if ($this->Parcels->save($parcel)) {
                 $this->Flash->success(__('The parcel has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'shippings', 'action' => 'view' , $ship]);
             } else {
                 $this->Flash->error(__('The parcel could not be saved. Please, try again.'));
             }

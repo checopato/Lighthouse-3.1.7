@@ -29,12 +29,32 @@
             <td><?= $this->Number->format($commision->id) ?></td>
         </tr>
         <tr>
+            <th><?= __('Freight') ?></th>
+            <td><?= $this->Number->format($commision->freight) ?></td>
+        </tr>
+        <tr>
+            <th><?= __('Total Freight') ?></th>
+            <td><?= $this->Number->format($commision->total_freight) ?></td>
+        </tr>
+        <tr>
+            <th><?= __('Total Demurrage') ?></th>
+            <td><?= $this->Number->format($commision->total_demurrage) ?></td>
+        </tr>
+        <tr>
+            <th><?= __('Commission') ?></th>
+            <td><?= $this->Number->format($commision->commission) ?></td>
+        </tr>
+        <tr>
             <th><?= __('Total') ?></th>
             <td><?= $this->Number->format($commision->total) ?></td>
         </tr>
         <tr>
             <th><?= __('Date Com') ?></th>
             <td><?= h($commision->date_com) ?></td>
+        </tr>
+        <tr>
+            <th><?= __('Created') ?></th>
+            <td><?= h($commision->created) ?></td>
         </tr>
     </table>
 </div>

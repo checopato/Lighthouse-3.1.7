@@ -19,10 +19,6 @@
                     <td><?= h($shipping->status) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Freight Rate') ?></th>
-                    <td><?= $this->Number->format($shipping->freight_rate) ?></td>
-                </tr>
-                <tr>
                     <th><?= __('Laycan Start') ?></th>
                     <td><?= h($shipping->laycan_com) ?></td>
                 </tr>
@@ -30,10 +26,33 @@
                     <th><?= __('Laycan End') ?></th>
                     <td><?= h($shipping->laycan_end) ?></td>
                 </tr>
-                <tr>
-                    <th><?= __('Factured?') ?></th>
-                    <td><?= $shipping->is_fact ? __('Yes') : __('No'); ?></td>
+                                <tr>
+                    <th><?= __('Fix Type') ?></th>
+                    <td><?= h($shipping->fixture->fix_type) ?></td>
                 </tr>
+                <tr>
+                    <th><?= __('Start Counting') ?></th>
+                    <td><?= h($shipping->fixture->start_counting) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Com %') ?></th>
+                    <td><?= $this->Number->format($shipping->fixture->broker_com) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Cargo Nomination Day') ?></th>
+                    <td><?= $this->Number->format($shipping->fixture->cargo_nom_day) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Intended Performer') ?></th>
+                    <td><?= $this->Number->format($shipping->fixture->int_per_dat) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Final Performer') ?></th>
+                    <td><?= $this->Number->format($shipping->fixture->final_performer) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('C/P Date') ?></th>
+                    <td><?= h($shipping->fixture->cp_date) ?></td>
             </table>
         </div>
     </ul>
@@ -50,23 +69,21 @@
         <?php if (!empty($shipping->parcels)): ?>
             <table class="table table-striped">
                 <tr>
-                    <th><?= __('Id') ?></th>
-                    <th><?= __('Shipping Id') ?></th>
-                    <th><?= __('Port Id') ?></th>
+                    <th><?= __('Port') ?></th>
                     <th><?= __('Type Of Call') ?></th>
                     <th><?= __('Volume') ?></th>
                     <th><?= __('Unit') ?></th>
                     <th><?= __('Cargo') ?></th>
-                    <th><?= __('Rate Op') ?></th>
-                    <th><?= __('Rate Av') ?></th>
+                    <th><?= __('Rate (t/h)') ?></th>
+                    <th><?= __('Rate Average') ?></th>
                     <th><?= __('Term') ?></th>
                     <th><?= __('Demurrage Rate') ?></th>
-                    <th><?= __('Freight 100') ?></th>
-                    <th><?= __('Whose Agent') ?></th>
+                    <th><?= __('Freight 100%') ?></th>
+                    <th><?= __('Freight Rate') ?></th>
+                    <th><?= __('Owners Agent?') ?></th>
                     <th><?= __('Agent') ?></th>
-                    <th><?= __('Des Dem Ffi') ?></th>
-                    <th><?= __('Des Dem Char') ?></th>
-                    <th><?= __('Dem Bro') ?></th>
+                    <th><?= __('Despatch/Demurrage FFI') ?></th>
+                    <th><?= __('Demurrage LHC') ?></th>
                     <th><?= __('Baf Usd') ?></th>
                     <th><?= __('Eta Arr') ?></th>
                     <th><?= __('Etb Ber') ?></th>
@@ -77,23 +94,21 @@
                 </tr>
                 <?php foreach ($shipping->parcels as $parcels): ?>
                     <tr>
-                        <td><?= h($parcels->id) ?></td>
-                        <td><?= h($parcels->shipping_id) ?></td>
                         <td><?= h($parcels->port_id) ?></td>
                         <td><?= h($parcels->type_of_call) ?></td>
-                        <td><?= h($parcels->volume) ?></td>
+                        <td><?= $this->Number->format($parcels->volume ,['places' => 2]) ?></td>
                         <td><?= h($parcels->unit) ?></td>
                         <td><?= h($parcels->cargo) ?></td>
-                        <td><?= h($parcels->rate_op) ?></td>
-                        <td><?= h($parcels->rate_av) ?></td>
+                        <td><?= $this->Number->format($parcels->rate_op,['places' => 2]) ?></td>
+                        <td><?= $this->Number->format($parcels->rate_av,['places' => 2]) ?></td>
                         <td><?= h($parcels->term) ?></td>
-                        <td><?= h($parcels->demurrage_rate) ?></td>
-                        <td><?= h($parcels->freight_100) ?></td>
-                        <td><?= h($parcels->whose_agent) ?></td>
+                        <td><?= $this->Number->format($parcels->demurrage_rate,['places' => 2]) ?></td>
+                        <td><?= $this->Number->format($parcels->freight_100,['places' => 2]) ?></td>
+                        <td><?= $this->Number->format($parcels->dem_bro,['places' => 2]) ?></td>
+                        <td><?= $parcels->whose_agent ? __('Yes') : __('No'); ?></td>
                         <td><?= h($parcels->agent) ?></td>
                         <td><?= h($parcels->des_dem_ffi) ?></td>
                         <td><?= h($parcels->des_dem_char) ?></td>
-                        <td><?= h($parcels->dem_bro) ?></td>
                         <td><?= h($parcels->baf_usd) ?></td>
                         <td><?= h($parcels->eta_arr) ?></td>
                         <td><?= h($parcels->etb_ber) ?></td>
@@ -104,8 +119,6 @@
                             <?= $this->Html->link(__('View'), ['controller' => 'Parcels', 'action' => 'view', $parcels->id]) ?>
 
                             <?= $this->Html->link(__('Edit'), ['controller' => 'Parcels', 'action' => 'edit', $parcels->id]) ?>
-
-                            <?= $this->Form->postLink(__('Delete'), ['controller' => 'Parcels', 'action' => 'delete', $parcels->id], ['confirm' => __('Are you sure you want to delete # {0}?', $parcels->id)]) ?>
 
                         </td>
                     </tr>

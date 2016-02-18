@@ -6,7 +6,7 @@
 				<fieldset>
 					<legend><?= __('Add Charterer') ?></legend>
 					<?php
-					echo $this->Form->input('full_style',['class' => 'form-control']);
+					echo $this->Form->input('full_style',['class' => 'form-control', 'rows' => '3']);
 					echo $this->Form->input('nick',['class' => 'form-control']);
 					?>
 				</fieldset>

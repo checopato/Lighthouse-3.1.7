@@ -21,6 +21,10 @@
             echo $this->Form->input('date_com', ['empty' => true]);
             echo $this->Form->input('service');
             echo $this->Form->input('type_com');
+            echo $this->Form->input('freight');
+            echo $this->Form->input('total_freight');
+            echo $this->Form->input('total_demurrage');
+            echo $this->Form->input('commission');
             echo $this->Form->input('total');
         ?>
     </fieldset>

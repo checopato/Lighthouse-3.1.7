@@ -81,7 +81,6 @@
                     <th><?= __('Laycan Com') ?></th>
                     <th><?= __('Laycan End') ?></th>
                     <?php endif ?>
-                    <th><?= __('Freight Rate') ?></th>
                     <th><?= __('Status') ?></th>
                     <th><?= __('Factured?') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
@@ -94,7 +93,6 @@
                         <td><?= h($shippings->laycan_com) ?></td>
                         <td><?= h($shippings->laycan_end) ?></td>
                         <?php endif ?>
-                        <td><?= h($shippings->freight_rate) ?></td>
                         <td><?= h($shippings->status) ?></td>
                         <td><?= h($shippings->is_fact) ? __('Yes') : __('No')?></td>
                         <td class="actions">

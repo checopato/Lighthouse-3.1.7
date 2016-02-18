@@ -79,8 +79,18 @@
                 echo $this->Form->input('laycan_com', ['label' => 'Laycan Start', 'type' => 'text', 'data-provide' => 'datepicker']);
                 echo $this->Form->input('laycan_end', ['label' => 'Laycan End', 'type' => 'text', 'data-provide' => 'datepicker']);
             }
-            echo $this->Form->input('freight_rate', ['label' => 'freight_rate' , 'type' => 'text', 'maxlength' => '4' ]);
-            echo $this->Form->input('status');
+            echo $this->Form->select('status',[
+                'Sailing to loading port' => 'Sailing to loading port',
+                'At loading port' => 'At loading port',
+                'Sailed from loading port' => 'Sailed from loading port',
+                'Transit to discharge port' => 'Transit to discharge port',
+                'At discharge port' => 'At discharge port',
+                'Sailed from discharge port' => 'Sailed from discharge port',
+                'Sailed from last discharge port' => 'Sailed from last discharge port',
+                'Laytime calculation discussion' => 'Laytime calculation discussion',
+                'Final balance settled' => 'Final balance settled',
+                'Closed' => 'Closed'
+                ]);
             echo $this->Form->hidden('is_fact');
         ?>
     </fieldset>
